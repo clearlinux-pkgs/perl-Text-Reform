@@ -4,12 +4,13 @@
 #
 Name     : perl-Text-Reform
 Version  : 1.20
-Release  : 19
+Release  : 20
 URL      : http://search.cpan.org/CPAN/authors/id/C/CH/CHORNY/Text-Reform-1.20.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/C/CH/CHORNY/Text-Reform-1.20.tar.gz
 Summary  : Manual text wrapping and reformatting
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
+Requires: perl-Text-Reform-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -21,19 +22,30 @@ Text::Reform - Manual text wrapping and reformating
 Summary: dev components for the perl-Text-Reform package.
 Group: Development
 Provides: perl-Text-Reform-devel = %{version}-%{release}
+Requires: perl-Text-Reform = %{version}-%{release}
 
 %description dev
 dev components for the perl-Text-Reform package.
 
 
+%package perl
+Summary: perl components for the perl-Text-Reform package.
+Group: Default
+Requires: perl-Text-Reform = %{version}-%{release}
+
+%description perl
+perl components for the perl-Text-Reform package.
+
+
 %prep
 %setup -q -n Text-Reform-1.20
+cd %{_builddir}/Text-Reform-1.20
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -43,7 +55,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -63,8 +75,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Text/Reform.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Text::Reform.3
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Text/Reform.pm
