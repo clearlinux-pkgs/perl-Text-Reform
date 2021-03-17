@@ -4,7 +4,7 @@
 #
 Name     : perl-Text-Reform
 Version  : 1.20
-Release  : 22
+Release  : 23
 URL      : http://search.cpan.org/CPAN/authors/id/C/CH/CHORNY/Text-Reform-1.20.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/C/CH/CHORNY/Text-Reform-1.20.tar.gz
 Summary  : Manual text wrapping and reformatting
@@ -82,4 +82,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.3/Text/Reform.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Text/Reform.pm
