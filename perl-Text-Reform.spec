@@ -7,7 +7,7 @@
 #
 Name     : perl-Text-Reform
 Version  : 1.20
-Release  : 36
+Release  : 37
 URL      : http://search.cpan.org/CPAN/authors/id/C/CH/CHORNY/Text-Reform-1.20.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/C/CH/CHORNY/Text-Reform-1.20.tar.gz
 Summary  : Manual text wrapping and reformatting
